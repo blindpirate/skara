@@ -21,13 +21,17 @@
  * questions.
  */
 plugins {
-    id"com.gradle.enterprise" version"3.11.2"
+    id "com.gradle.enterprise" version "3.11.2"
 }
 
 gradleEnterprise {
     server = "https://ge.gradle.org"
     buildScan {
         publishAlways()
+    }
+    buildCache {
+        local { enabled = true }
+        remote(gradleEnterprise.buildCache) { enabled = false }
     }
 }
 
