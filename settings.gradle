@@ -20,6 +20,17 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
+plugins {
+    id"com.gradle.enterprise" version"3.11.2"
+}
+
+gradleEnterprise {
+    server = "https://ge.gradle.org"
+    buildScan {
+        publishAlways()
+    }
+}
+
 rootProject.name = 'skara'
 
 includeBuild 'gradle/plugins/skara-proxy'
